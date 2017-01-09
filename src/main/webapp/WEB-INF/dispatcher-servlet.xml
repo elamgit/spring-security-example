@@ -9,20 +9,8 @@
  http://www.springframework.org/schema/context
  http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <!-- not strictly necessary for this example, but still useful, see http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html#mvc-ann-controller for more information -->
     <context:component-scan base-package="com.kavi.spring" />
 
-    <!-- the mvc resources tag does the magic -->
-    <mvc:resources mapping="/resources/**" location="/css/" />
-    <mvc:resources mapping="/resources/**" location="/js/" />
-
-    <!-- also add the following beans to get rid of some exceptions -->
-    <bean      class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-    <bean
-            class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-    </bean>
-
-    <!-- JSTL resolver -->
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
